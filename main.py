@@ -11,9 +11,9 @@ attempts = 0
 with open("score_list.txt", "r") as score_file:
     score_list = json.loads(score_file.read())
 
-#ovdje sam zapeo na listi najbolja tri rezultata, zasad dobijem poruku Non
-    best_score_list = score_list.sort(key=lambda k: k['attempts'], reverse=True)
-    print("Best three scores: " + str(best_score_list)[:3])
+#ovdje sam zapeo na listi najbolja tri rezultata, je li ovo ispravno?
+    best_score_list = sorted(score_list, key=lambda k: k['attempts'])[:3]
+    print("Best three scores: " + str(best_score_list))
 
 for score_dict in score_list:
     score_text = "Player {0} had {1} attempts on {2}. The secret number was {3}. The wrong guesses were: {4}".format(score_dict.get("player_name"),
